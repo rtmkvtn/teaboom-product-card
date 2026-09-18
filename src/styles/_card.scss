@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 // Base rules are mobile: one column where the info block's children join the
-// grid (display: contents) so the title and eyebrow can sit above the photo
+// grid (display: contents) so the title and category can sit above the photo
 // and the description last. Spacing on mobile comes from margins, not the
 // grid gap. Tablet keeps two equal top-aligned columns; desktop restores the
 // 1.1fr/1fr centred layout.
@@ -60,28 +60,9 @@
   }
 }
 
-.product-card__eyebrow {
-  display: inline-block;
-  order: -1;
-  justify-self: start;
-  margin-bottom: 16px;
-  padding: 2px 12px;
-  background: $color-eyebrow-bg;
-  color: $color-eyebrow-text;
-  font-size: $font-size-eyebrow;
-  line-height: $line-height-eyebrow;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  border-radius: $radius-pill;
-
-  @include from($bp-tablet) {
-    margin-bottom: 14px;
-  }
-}
-
 .product-card__title {
   order: -2;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   color: $color-dark;
   font-size: $font-size-title-mobile;
   line-height: $line-height-title-mobile;
@@ -89,7 +70,7 @@
   letter-spacing: -0.3px;
 
   @include from($bp-tablet) {
-    margin-bottom: 12px;
+    margin-bottom: 2px;
     font-size: $font-size-title-tablet;
     line-height: $line-height-title-tablet;
   }
@@ -97,6 +78,25 @@
   @include from($bp-desktop) {
     font-size: $font-size-title;
     line-height: $line-height-title;
+  }
+}
+
+// Category line right under the title; on mobile it is ordered before the photo
+.product-card__category {
+  order: -1;
+  margin-bottom: 16px;
+  color: $color-category;
+  font-size: 15px;
+  line-height: 22px;
+
+  @include from($bp-tablet) {
+    margin-bottom: 14px;
+  }
+
+  @include from($bp-desktop) {
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
@@ -162,10 +162,10 @@
 
 .price-pair__discount {
   padding: 0 8px;
-  background: $color-eyebrow-bg;
-  color: $color-eyebrow-text;
-  font-size: $font-size-eyebrow;
-  line-height: $line-height-eyebrow;
+  background: $color-pill-bg;
+  color: $color-pill-text;
+  font-size: $font-size-pill;
+  line-height: $line-height-pill;
   font-weight: 700;
   border-radius: $radius-pill;
 
