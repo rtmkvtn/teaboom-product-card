@@ -30,19 +30,37 @@
         </header>
 
         <div class="product-card__photo">
-          <img
-            class="product-card__image"
-            src="/images/ananasovij-ulun-800.jpg"
-            srcset="
-              /images/ananasovij-ulun-800.jpg 800w,
-              /images/ananasovij-ulun-970.jpg 970w
-            "
-            sizes="(min-width: 992px) 520px, (min-width: 768px) calc((100vw - 60px) / 2 - 40px), 100vw"
-            width="800"
-            height="800"
-            alt="Ананасовый улун, вид сверху"
-            decoding="async"
-          />
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                /images/ananasovij-ulun-800.avif 800w,
+                /images/ananasovij-ulun-970.avif 970w
+              "
+              sizes="(min-width: 992px) 520px, (min-width: 768px) calc((100vw - 60px) / 2 - 40px), calc(100vw - 64px)"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                /images/ananasovij-ulun-800.webp 800w,
+                /images/ananasovij-ulun-970.webp 970w
+              "
+              sizes="(min-width: 992px) 520px, (min-width: 768px) calc((100vw - 60px) / 2 - 40px), calc(100vw - 64px)"
+            />
+            <img
+              class="product-card__image"
+              src="/images/ananasovij-ulun-800.jpg"
+              srcset="
+                /images/ananasovij-ulun-800.jpg 800w,
+                /images/ananasovij-ulun-970.jpg 970w
+              "
+              sizes="(min-width: 992px) 520px, (min-width: 768px) calc((100vw - 60px) / 2 - 40px), calc(100vw - 64px)"
+              width="800"
+              height="800"
+              alt="Ананасовый улун, вид сверху"
+              fetchpriority="high"
+            />
+          </picture>
         </div>
 
         <div class="product-card__info">
