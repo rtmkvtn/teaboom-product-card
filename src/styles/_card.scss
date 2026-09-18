@@ -31,105 +31,122 @@
     column-gap: $card-gap;
     align-items: center;
   }
-}
 
-.product-card__header {
-  grid-area: header;
-}
-
-.product-card__photo {
-  grid-area: photo;
-  margin-bottom: $card-gap-mobile;
-  padding: $photo-panel-padding-mobile;
-  background: $color-photo-panel;
-  border-radius: $photo-panel-radius-mobile;
-
-  @include from($bp-tablet) {
-    margin-bottom: 0;
-    padding: $photo-panel-padding-tablet;
+  &__header {
+    grid-area: header;
   }
 
-  @include from($bp-desktop) {
-    padding: $photo-panel-padding;
-    border-radius: $photo-panel-radius;
-  }
-}
+  &__photo {
+    grid-area: photo;
+    margin-bottom: $card-gap-mobile;
+    padding: $photo-panel-padding-mobile;
+    background: $color-photo-panel;
+    border-radius: $photo-panel-radius-mobile;
 
-.product-card__image {
-  width: 100%;
-  border-radius: $photo-radius;
-  box-shadow: $photo-shadow;
-}
+    @include from($bp-tablet) {
+      margin-bottom: 0;
+      padding: $photo-panel-padding-tablet;
+    }
 
-// A flex column on mobile so the description can be moved last with `order`;
-// from tablet up the block flows in source order again.
-.product-card__info {
-  grid-area: info;
-  display: flex;
-  flex-direction: column;
-
-  @include from($bp-tablet) {
-    display: block;
-  }
-}
-
-.product-card__title {
-  margin-bottom: 4px;
-  color: $color-dark;
-  font-size: $font-size-title-mobile;
-  line-height: $line-height-title-mobile;
-  font-weight: 700;
-  letter-spacing: -0.3px;
-
-  @include from($bp-tablet) {
-    margin-bottom: 2px;
-    font-size: $font-size-title-tablet;
-    line-height: $line-height-title-tablet;
+    @include from($bp-desktop) {
+      padding: $photo-panel-padding;
+      border-radius: $photo-panel-radius;
+    }
   }
 
-  @include from($bp-desktop) {
-    font-size: $font-size-title;
-    line-height: $line-height-title;
-  }
-}
-
-// Category line right under the title
-.product-card__category {
-  margin-bottom: 16px;
-  color: $color-category;
-  font-size: 15px;
-  line-height: 22px;
-
-  @include from($bp-tablet) {
-    margin-bottom: 14px;
+  &__image {
+    width: 100%;
+    border-radius: $photo-radius;
+    box-shadow: $photo-shadow;
   }
 
-  @include from($bp-desktop) {
+  // A flex column on mobile so the description can be moved last with `order`;
+  // from tablet up the block flows in source order again.
+  &__info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+
+    @include from($bp-tablet) {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin-bottom: 4px;
+    color: $color-dark;
+    font-size: $font-size-title-mobile;
+    line-height: $line-height-title-mobile;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+
+    @include from($bp-tablet) {
+      margin-bottom: 2px;
+      font-size: $font-size-title-tablet;
+      line-height: $line-height-title-tablet;
+    }
+
+    @include from($bp-desktop) {
+      font-size: $font-size-title;
+      line-height: $line-height-title;
+    }
+  }
+
+  // Category line right under the title
+  &__category {
     margin-bottom: 16px;
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
+    color: $color-category;
+    font-size: 15px;
+    line-height: 22px;
 
-.product-card__description {
-  order: 1;
-  margin-top: 20px;
-  padding-top: 18px;
-  border-top: 1px solid $color-rule;
-  font-size: $font-size-description-mobile;
-  line-height: $line-height-description-mobile;
+    @include from($bp-tablet) {
+      margin-bottom: 14px;
+    }
 
-  @include from($bp-tablet) {
-    order: 0;
-    max-width: 56ch;
-    margin: 0 0 26px;
-    padding-top: 0;
-    border-top: 0;
+    @include from($bp-desktop) {
+      margin-bottom: 16px;
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
-  @include from($bp-desktop) {
-    font-size: $font-size-description;
-    line-height: $line-height-description;
+  &__description {
+    order: 1;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid $color-rule;
+    font-size: $font-size-description-mobile;
+    line-height: $line-height-description-mobile;
+
+    @include from($bp-tablet) {
+      order: 0;
+      max-width: 56ch;
+      margin: 0 0 26px;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    @include from($bp-desktop) {
+      font-size: $font-size-description;
+      line-height: $line-height-description;
+    }
+  }
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $meta-gap-mobile;
+    margin-top: 12px;
+    color: $color-muted;
+    font-size: $font-size-meta;
+
+    @include from($bp-tablet) {
+      gap: $meta-gap;
+    }
+  }
+
+  &__sku {
+    color: $color-dark;
+    font-weight: 600;
   }
 }
 
@@ -142,63 +159,45 @@
   @include from($bp-tablet) {
     margin-top: 24px;
   }
-}
 
-.price-pair__current {
-  color: $color-dark;
-  font-size: $font-size-current-price-mobile;
-  line-height: $line-height-current-price-mobile;
-  font-weight: 700;
+  &__current {
+    color: $color-dark;
+    font-size: $font-size-current-price-mobile;
+    line-height: $line-height-current-price-mobile;
+    font-weight: 700;
 
-  @include from($bp-desktop) {
-    font-size: $font-size-current-price;
-    line-height: $line-height-current-price;
-  }
-}
-
-.price-pair__old {
-  color: $color-muted;
-  font-size: $font-size-old-price-mobile;
-  font-weight: 400;
-  text-decoration: line-through;
-
-  &[hidden] {
-    display: none;
+    @include from($bp-desktop) {
+      font-size: $font-size-current-price;
+      line-height: $line-height-current-price;
+    }
   }
 
-  @include from($bp-desktop) {
-    font-size: $font-size-old-price;
+  &__old {
+    color: $color-muted;
+    font-size: $font-size-old-price-mobile;
+    font-weight: 400;
+    text-decoration: line-through;
+
+    &[hidden] {
+      display: none;
+    }
+
+    @include from($bp-desktop) {
+      font-size: $font-size-old-price;
+    }
   }
-}
 
-.price-pair__discount {
-  padding: 0 8px;
-  background: $color-pill-bg;
-  color: $color-pill-text;
-  font-size: $font-size-pill;
-  line-height: $line-height-pill;
-  font-weight: 700;
-  border-radius: $radius-pill;
+  &__discount {
+    padding: 0 8px;
+    background: $color-pill-bg;
+    color: $color-pill-text;
+    font-size: $font-size-pill;
+    line-height: $line-height-pill;
+    font-weight: 700;
+    border-radius: $radius-pill;
 
-  &[hidden] {
-    display: none;
+    &[hidden] {
+      display: none;
+    }
   }
-}
-
-.product-card__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $meta-gap-mobile;
-  margin-top: 12px;
-  color: $color-muted;
-  font-size: $font-size-meta;
-
-  @include from($bp-tablet) {
-    gap: $meta-gap;
-  }
-}
-
-.product-card__sku {
-  color: $color-dark;
-  font-weight: 600;
 }

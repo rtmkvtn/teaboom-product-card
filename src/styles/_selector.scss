@@ -1,166 +1,173 @@
 @use 'variables' as *;
 
-.variant-selector__legend {
-  margin-bottom: 2px;
-  color: $color-dark;
-  font-size: $font-size-legend;
-  font-weight: 700;
-}
+.variant-selector {
+  &__legend {
+    margin-bottom: 2px;
+    color: $color-dark;
+    font-size: $font-size-legend;
+    font-weight: 700;
+  }
 
-.variant-selector__hint {
-  margin-bottom: 12px;
-  color: $color-muted;
-  font-size: $font-size-hint;
-}
+  &__hint {
+    margin-bottom: 12px;
+    color: $color-muted;
+    font-size: $font-size-hint;
+  }
 
-// 2×2 grid at every width; only the gap widens on desktop
-.variant-selector__options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $option-gap-mobile;
+  // 2×2 grid at every width; only the gap widens on desktop
+  &__options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $option-gap-mobile;
 
-  @include from($bp-desktop) {
-    gap: $option-gap;
+    @include from($bp-desktop) {
+      gap: $option-gap;
+    }
   }
 }
 
-.variant-option__label {
-  position: relative;
-  display: block;
-  padding: $option-padding-mobile;
-  background: $color-white;
-  border: $option-border-width solid $color-option-border;
-  border-radius: $option-radius-mobile;
-  cursor: pointer;
-  transition:
-    border-color $transition-duration,
-    box-shadow $transition-duration;
-
-  @include from($bp-tablet) {
-    padding: $option-padding-tablet;
-    border-radius: $option-radius;
-  }
-
-  @include from($bp-desktop) {
-    padding: $option-padding;
-  }
-
-  // Selection circle at the top right corner
-  &::before {
-    content: '';
-    position: absolute;
-    top: $option-circle-inset-mobile;
-    right: $option-circle-inset-mobile;
-    width: $option-circle-size-mobile;
-    height: $option-circle-size-mobile;
+.variant-option {
+  &__label {
+    position: relative;
+    display: block;
+    padding: $option-padding-mobile;
     background: $color-white;
-    border: $option-border-width solid $color-option-ring;
-    border-radius: 50%;
+    border: $option-border-width solid $color-option-border;
+    border-radius: $option-radius-mobile;
+    cursor: pointer;
     transition:
       border-color $transition-duration,
-      background-color $transition-duration;
+      box-shadow $transition-duration;
 
     @include from($bp-tablet) {
-      top: $option-circle-inset-tablet;
-      right: $option-circle-inset-tablet;
-      width: $option-circle-size;
-      height: $option-circle-size;
+      padding: $option-padding-tablet;
+      border-radius: $option-radius;
     }
 
     @include from($bp-desktop) {
-      top: $option-circle-inset;
-      right: $option-circle-inset;
+      padding: $option-padding;
     }
-  }
 
-  // Check mark drawn inside the circle, shown only when selected
-  &::after {
-    content: '';
-    position: absolute;
-    top: calc(
-      #{$option-circle-inset-mobile} + #{$option-circle-size-mobile} * 0.22
-    );
-    right: calc(
-      #{$option-circle-inset-mobile} + #{$option-circle-size-mobile} * 0.36
-    );
-    width: calc(#{$option-circle-size-mobile} * 0.28);
-    height: calc(#{$option-circle-size-mobile} * 0.5);
-    border: solid $color-accent;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    opacity: 0;
+    // Selection circle at the top right corner
+    &::before {
+      content: '';
+      position: absolute;
+      top: $option-circle-inset-mobile;
+      right: $option-circle-inset-mobile;
+      width: $option-circle-size-mobile;
+      height: $option-circle-size-mobile;
+      background: $color-white;
+      border: $option-border-width solid $color-option-ring;
+      border-radius: 50%;
+      transition:
+        border-color $transition-duration,
+        background-color $transition-duration;
 
-    @include from($bp-tablet) {
-      top: calc(#{$option-circle-inset-tablet} + #{$option-circle-size} * 0.22);
-      right: calc(
-        #{$option-circle-inset-tablet} + #{$option-circle-size} * 0.36
+      @include from($bp-tablet) {
+        top: $option-circle-inset-tablet;
+        right: $option-circle-inset-tablet;
+        width: $option-circle-size;
+        height: $option-circle-size;
+      }
+
+      @include from($bp-desktop) {
+        top: $option-circle-inset;
+        right: $option-circle-inset;
+      }
+    }
+
+    // Check mark drawn inside the circle, shown only when selected
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(
+        #{$option-circle-inset-mobile} + #{$option-circle-size-mobile} * 0.22
       );
-      width: calc(#{$option-circle-size} * 0.28);
-      height: calc(#{$option-circle-size} * 0.5);
+      right: calc(
+        #{$option-circle-inset-mobile} + #{$option-circle-size-mobile} * 0.36
+      );
+      width: calc(#{$option-circle-size-mobile} * 0.28);
+      height: calc(#{$option-circle-size-mobile} * 0.5);
+      border: solid $color-accent;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+
+      @include from($bp-tablet) {
+        top: calc(
+          #{$option-circle-inset-tablet} + #{$option-circle-size} * 0.22
+        );
+        right: calc(
+          #{$option-circle-inset-tablet} + #{$option-circle-size} * 0.36
+        );
+        width: calc(#{$option-circle-size} * 0.28);
+        height: calc(#{$option-circle-size} * 0.5);
+      }
+
+      @include from($bp-desktop) {
+        top: calc(#{$option-circle-inset} + #{$option-circle-size} * 0.22);
+        right: calc(#{$option-circle-inset} + #{$option-circle-size} * 0.36);
+      }
     }
+  }
+
+  &__weight,
+  &__price,
+  &__unit-price {
+    display: block;
+  }
+
+  &__weight {
+    color: $color-dark;
+    font-size: $font-size-option-weight-mobile;
+    line-height: $line-height-option-weight-mobile;
+    font-weight: 700;
 
     @include from($bp-desktop) {
-      top: calc(#{$option-circle-inset} + #{$option-circle-size} * 0.22);
-      right: calc(#{$option-circle-inset} + #{$option-circle-size} * 0.36);
+      font-size: $font-size-option-weight;
+      line-height: $line-height-option-weight;
     }
   }
-}
 
-.variant-option__weight,
-.variant-option__price,
-.variant-option__unit-price {
-  display: block;
-}
+  &__price {
+    color: $color-dark;
+    font-size: $font-size-option-price-mobile;
+    line-height: $line-height-option-price;
+    font-weight: 600;
 
-.variant-option__weight {
-  color: $color-dark;
-  font-size: $font-size-option-weight-mobile;
-  line-height: $line-height-option-weight-mobile;
-  font-weight: 700;
-
-  @include from($bp-desktop) {
-    font-size: $font-size-option-weight;
-    line-height: $line-height-option-weight;
+    @include from($bp-desktop) {
+      font-size: $font-size-option-price;
+    }
   }
-}
 
-.variant-option__price {
-  color: $color-dark;
-  font-size: $font-size-option-price-mobile;
-  line-height: $line-height-option-price;
-  font-weight: 600;
+  &__unit-price {
+    margin-top: 2px;
+    color: $color-muted;
+    font-size: $font-size-option-unit-price-mobile;
+    line-height: $line-height-option-unit-price;
 
-  @include from($bp-desktop) {
-    font-size: $font-size-option-price;
+    @include from($bp-desktop) {
+      font-size: $font-size-option-unit-price;
+    }
   }
-}
 
-.variant-option__unit-price {
-  margin-top: 2px;
-  color: $color-muted;
-  font-size: $font-size-option-unit-price-mobile;
-  line-height: $line-height-option-unit-price;
-
-  @include from($bp-desktop) {
-    font-size: $font-size-option-unit-price;
-  }
-}
-
-.variant-option__input:checked + .variant-option__label {
-  border-color: $color-dark;
-  box-shadow: 0 0 0 1px $color-dark;
-
-  &::before {
-    background: $color-dark;
+  // The checked radio is the selected state; the label reacts to it
+  &__input:checked + &__label {
     border-color: $color-dark;
+    box-shadow: 0 0 0 1px $color-dark;
+
+    &::before {
+      background: $color-dark;
+      border-color: $color-dark;
+    }
+
+    &::after {
+      opacity: 1;
+    }
   }
 
-  &::after {
-    opacity: 1;
+  &__input:focus-visible + &__label {
+    outline: 2px solid $color-dark;
+    outline-offset: 3px;
   }
-}
-
-.variant-option__input:focus-visible + .variant-option__label {
-  outline: 2px solid $color-dark;
-  outline-offset: 3px;
 }
