@@ -1,0 +1,109 @@
+@use 'variables' as *;
+
+.variant-selector__legend {
+  margin-bottom: 2px;
+  color: $color-dark;
+  font-size: $font-size-legend;
+  font-weight: 700;
+}
+
+.variant-selector__hint {
+  margin-bottom: 12px;
+  color: $color-muted;
+  font-size: $font-size-hint;
+}
+
+.variant-selector__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $option-gap;
+}
+
+.variant-option__label {
+  position: relative;
+  display: block;
+  padding: $option-padding;
+  background: $color-white;
+  border: $option-border-width solid $color-option-border;
+  border-radius: $option-radius;
+  cursor: pointer;
+  transition:
+    border-color $transition-duration,
+    box-shadow $transition-duration;
+
+  // Selection circle at the top right corner
+  &::before {
+    content: '';
+    position: absolute;
+    top: $option-circle-inset;
+    right: $option-circle-inset;
+    width: $option-circle-size;
+    height: $option-circle-size;
+    background: $color-white;
+    border: $option-border-width solid $color-option-ring;
+    border-radius: 50%;
+    transition:
+      border-color $transition-duration,
+      background-color $transition-duration;
+  }
+
+  // Check mark drawn inside the circle, shown only when selected
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(#{$option-circle-inset} + #{$option-circle-size} * 0.22);
+    right: calc(#{$option-circle-inset} + #{$option-circle-size} * 0.36);
+    width: calc(#{$option-circle-size} * 0.28);
+    height: calc(#{$option-circle-size} * 0.5);
+    border: solid $color-accent;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.variant-option__weight,
+.variant-option__price,
+.variant-option__unit-price {
+  display: block;
+}
+
+.variant-option__weight {
+  color: $color-dark;
+  font-size: $font-size-option-weight;
+  line-height: $line-height-option-weight;
+  font-weight: 700;
+}
+
+.variant-option__price {
+  color: $color-dark;
+  font-size: $font-size-option-price;
+  line-height: $line-height-option-price;
+  font-weight: 600;
+}
+
+.variant-option__unit-price {
+  margin-top: 2px;
+  color: $color-muted;
+  font-size: $font-size-option-unit-price;
+  line-height: $line-height-option-unit-price;
+}
+
+.variant-option__input:checked + .variant-option__label {
+  border-color: $color-dark;
+  box-shadow: 0 0 0 1px $color-dark;
+
+  &::before {
+    background: $color-dark;
+    border-color: $color-dark;
+  }
+
+  &::after {
+    opacity: 1;
+  }
+}
+
+.variant-option__input:focus-visible + .variant-option__label {
+  outline: 2px solid $color-dark;
+  outline-offset: 3px;
+}

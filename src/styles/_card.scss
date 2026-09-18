@@ -1,0 +1,105 @@
+@use 'variables' as *;
+
+.product-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: $card-gap;
+  align-items: center;
+
+  > * {
+    min-width: 0;
+  }
+}
+
+.product-card__photo {
+  padding: $photo-panel-padding;
+  background: $color-photo-panel;
+  border-radius: $photo-panel-radius;
+}
+
+.product-card__image {
+  width: 100%;
+  border-radius: $photo-radius;
+  box-shadow: $photo-shadow;
+}
+
+.product-card__eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 2px 12px;
+  background: $color-eyebrow-bg;
+  color: $color-eyebrow-text;
+  font-size: $font-size-eyebrow;
+  line-height: $line-height-eyebrow;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  border-radius: $radius-pill;
+}
+
+.product-card__title {
+  margin-bottom: 12px;
+  color: $color-dark;
+  font-size: $font-size-title;
+  line-height: $line-height-title;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.product-card__description {
+  max-width: 56ch;
+  margin-bottom: 26px;
+  font-size: $font-size-description;
+  line-height: $line-height-description;
+}
+
+.price-pair {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 24px 0 10px;
+}
+
+.price-pair__current {
+  color: $color-dark;
+  font-size: $font-size-current-price;
+  line-height: $line-height-current-price;
+  font-weight: 700;
+}
+
+.price-pair__old {
+  color: $color-muted;
+  font-size: $font-size-old-price;
+  font-weight: 500;
+  text-decoration: line-through;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.price-pair__discount {
+  padding: 0 8px;
+  background: $color-eyebrow-bg;
+  color: $color-eyebrow-text;
+  font-size: $font-size-eyebrow;
+  line-height: $line-height-eyebrow;
+  font-weight: 700;
+  border-radius: $radius-pill;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.product-card__meta {
+  display: flex;
+  gap: $meta-gap;
+  margin-top: 12px;
+  color: $color-muted;
+  font-size: $font-size-meta;
+}
+
+.product-card__sku {
+  color: $color-dark;
+  font-weight: 600;
+}

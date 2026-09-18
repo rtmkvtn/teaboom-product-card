@@ -1,0 +1,79 @@
+// Colors (Teaboom palette, see spec "Visual design")
+$color-page: #fbfbfb;
+$color-text: #444;
+$color-dark: #202020;
+$color-muted: #808080;
+$color-accent: #f5d730;
+$color-green: #80bc14;
+$color-white: #fff;
+
+$color-photo-panel: #f4efe3;
+$color-eyebrow-bg: #fbf1b8;
+$color-eyebrow-text: #5c4d00;
+$color-option-border: #e6e6e6;
+$color-option-ring: #d6d6d6;
+$color-rule: #ececec;
+
+// Breakpoints (mobile-first min-width steps)
+$bp-tablet: 768px;
+$bp-desktop: 992px;
+$bp-wide: 1200px;
+
+// Type
+$font-family: 'Open Sans', Arial, sans-serif;
+
+$font-size-body: 14px;
+$line-height-body: 24px;
+
+$font-size-title: 40px;
+$line-height-title: 48px;
+
+$font-size-description: 15px;
+$line-height-description: 26px;
+
+$font-size-legend: 15px;
+$font-size-hint: 12px;
+
+$font-size-option-weight: 16px;
+$line-height-option-weight: 22px;
+$font-size-option-price: 14px;
+$line-height-option-price: 20px;
+$font-size-option-unit-price: 12px;
+$line-height-option-unit-price: 16px;
+
+$font-size-current-price: 30px;
+$line-height-current-price: 34px;
+$font-size-old-price: 16px;
+
+$font-size-eyebrow: 12px;
+$line-height-eyebrow: 20px;
+
+$font-size-button: 15px;
+$line-height-button: 24px;
+
+$font-size-meta: 12px;
+
+// Layout
+$container-max-width: $bp-wide;
+$container-padding-top: 40px;
+$container-gutter: 16px;
+
+$card-gap: 56px;
+$photo-panel-padding: 40px;
+$photo-panel-radius: 20px;
+$photo-radius: 12px;
+$photo-shadow: 0 20px 40px -24px rgba(32, 32, 32, 0.35);
+
+$option-gap: 10px;
+$option-padding: 14px 16px 12px;
+$option-radius: 12px;
+$option-border-width: 1.5px;
+$option-circle-size: 18px;
+$option-circle-inset: 14px;
+
+$button-padding: 14px 30px;
+
+$meta-gap: 18px;
+
+$radius-pill: 999px;
+$transition-duration: 250ms;

@@ -3,11 +3,157 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Состав: китайский бирюзовый чай, цукаты, натуральные ароматические масла. Светлый Фуцзяньский улун с ароматом ананаса."
+    />
     <title>Ананасовый улун — Teaboom</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%2380bc14' d='M27 5C14 5 6 12 5 26c8 1 15-2 19-8 2-3 3-8 3-13z'/%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.6' stroke-linecap='round' d='M7 25c4-7 9-12 15-16'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <main>
-      <h1>Ананасовый улун</h1>
+    <main class="page">
+      <article class="product-card">
+        <div class="product-card__photo">
+          <img
+            class="product-card__image"
+            src="/images/ananasovij-ulun-800.jpg"
+            srcset="
+              /images/ananasovij-ulun-800.jpg 800w,
+              /images/ananasovij-ulun-970.jpg 970w
+            "
+            sizes="(min-width: 992px) 520px, 100vw"
+            width="800"
+            height="800"
+            alt="Ананасовый улун, вид сверху"
+            decoding="async"
+          />
+        </div>
+
+        <div class="product-card__info">
+          <span class="product-card__eyebrow">Ароматизированный улун</span>
+          <h1 class="product-card__title">Ананасовый улун</h1>
+          <p class="product-card__description">
+            Состав: китайский бирюзовый чай, цукаты, натуральные ароматические
+            масла. Светлый Фуцзяньский улун с ароматом ананаса. В сухом виде —
+            красивый крупный лист изумрудного цвета, скруткой листа напоминающий
+            Те Гуань Инь. В прогретой посуде аромат свежей, весенней зелени и
+            спелого ананаса. Скрученный лист медленно раскрывается, отдавая весь
+            свой аромат.
+          </p>
+
+          <fieldset class="variant-selector">
+            <legend class="variant-selector__legend">Фасовка</legend>
+            <p class="variant-selector__hint">
+              Чем больше упаковка, тем дешевле 100&nbsp;г
+            </p>
+            <div class="variant-selector__options">
+              <div class="variant-option">
+                <input
+                  class="variant-option__input visually-hidden"
+                  type="radio"
+                  name="variant"
+                  id="variant-100"
+                  value="100"
+                  checked
+                />
+                <label class="variant-option__label" for="variant-100">
+                  <span class="variant-option__weight">100&nbsp;г</span>
+                  <span class="variant-option__price">326,40&nbsp;₽</span>
+                  <span class="variant-option__unit-price"
+                    >326,40&nbsp;₽ за 100&nbsp;г</span
+                  >
+                </label>
+              </div>
+              <div class="variant-option">
+                <input
+                  class="variant-option__input visually-hidden"
+                  type="radio"
+                  name="variant"
+                  id="variant-500"
+                  value="500"
+                />
+                <label class="variant-option__label" for="variant-500">
+                  <span class="variant-option__weight">500&nbsp;г</span>
+                  <span class="variant-option__price">1&#8239;432&nbsp;₽</span>
+                  <span class="variant-option__unit-price"
+                    >286,40&nbsp;₽ за 100&nbsp;г</span
+                  >
+                </label>
+              </div>
+              <div class="variant-option">
+                <input
+                  class="variant-option__input visually-hidden"
+                  type="radio"
+                  name="variant"
+                  id="variant-1000"
+                  value="1000"
+                />
+                <label class="variant-option__label" for="variant-1000">
+                  <span class="variant-option__weight">1000&nbsp;г</span>
+                  <span class="variant-option__price">2&#8239;064&nbsp;₽</span>
+                  <span class="variant-option__unit-price"
+                    >206,40&nbsp;₽ за 100&nbsp;г</span
+                  >
+                </label>
+              </div>
+              <div class="variant-option">
+                <input
+                  class="variant-option__input visually-hidden"
+                  type="radio"
+                  name="variant"
+                  id="variant-5000"
+                  value="5000"
+                />
+                <label class="variant-option__label" for="variant-5000">
+                  <span class="variant-option__weight">5000&nbsp;г</span>
+                  <span class="variant-option__price">6&#8239;320&nbsp;₽</span>
+                  <span class="variant-option__unit-price"
+                    >126,40&nbsp;₽ за 100&nbsp;г</span
+                  >
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="price-pair">
+            <span class="price-pair__current">326,40&nbsp;₽</span>
+            <s class="price-pair__old">
+              <span class="visually-hidden">Старая цена</span>
+              349,20&nbsp;₽
+            </s>
+            <span class="price-pair__discount">−7%</span>
+          </div>
+
+          <button class="cart-button" type="button">
+            <svg
+              class="cart-button__icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M3 4h2l2.4 11h11.2L21 8H7" />
+              <circle cx="10" cy="19" r="1.4" />
+              <circle cx="17" cy="19" r="1.4" />
+            </svg>
+            <span class="cart-button__label">В корзину</span>
+          </button>
+
+          <ul class="product-card__meta">
+            <li>Артикул <b class="product-card__sku">01306</b></li>
+            <li>В наличии</li>
+            <li>Доставка по России</li>
+          </ul>
+        </div>
+      </article>
     </main>
     <script type="module" src="/src/main.js"></script>
   </body>

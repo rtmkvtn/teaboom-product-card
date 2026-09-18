@@ -1,0 +1,51 @@
+@use 'variables' as *;
+
+.cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: $button-padding;
+  background: $color-dark;
+  color: $color-white;
+  font-size: $font-size-button;
+  line-height: $line-height-button;
+  font-weight: 700;
+  border: 1px solid $color-dark;
+  border-radius: $radius-pill;
+  cursor: pointer;
+  transition:
+    background-color $transition-duration ease,
+    border-color $transition-duration ease,
+    color $transition-duration ease;
+
+  &:hover {
+    background: $color-accent;
+    border-color: $color-accent;
+    color: $color-dark;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-dark;
+    outline-offset: 3px;
+  }
+
+  // Short feedback state after a click, toggled by the script
+  &--done,
+  &--done:hover {
+    background: $color-green;
+    border-color: $color-green;
+    color: $color-white;
+  }
+}
+
+.cart-button__icon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
