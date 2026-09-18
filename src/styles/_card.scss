@@ -1,11 +1,14 @@
 @use 'variables' as *;
 
-// Base rules are mobile: one column, photo first. Tablet keeps two equal
-// top-aligned columns; desktop restores the 1.1fr/1fr centred layout.
+// Base rules are mobile: one column where the info block's children join the
+// grid (display: contents) so the eyebrow and title can sit above the photo
+// and the description last. Spacing on mobile comes from margins, not the
+// grid gap. Tablet keeps two equal top-aligned columns; desktop restores the
+// 1.1fr/1fr centred layout.
 .product-card {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $card-gap-mobile;
+  gap: 0;
 
   > * {
     min-width: 0;
@@ -25,11 +28,13 @@
 }
 
 .product-card__photo {
+  margin-bottom: $card-gap-mobile;
   padding: $photo-panel-padding-mobile;
   background: $color-photo-panel;
   border-radius: $photo-panel-radius-mobile;
 
   @include from($bp-tablet) {
+    margin-bottom: 0;
     padding: $photo-panel-padding-tablet;
   }
 
@@ -45,11 +50,10 @@
   box-shadow: $photo-shadow;
 }
 
-// A flex column on mobile so the description can be moved last with `order`;
-// from tablet up the block flows in source order again.
+// On mobile the wrapper disappears (display: contents) and its children are
+// placed by `order`; from tablet up the block flows in source order again.
 .product-card__info {
-  display: flex;
-  flex-direction: column;
+  display: contents;
 
   @include from($bp-tablet) {
     display: block;
@@ -58,7 +62,8 @@
 
 .product-card__eyebrow {
   display: inline-block;
-  align-self: flex-start;
+  order: -2;
+  justify-self: start;
   margin-bottom: 10px;
   padding: 2px 12px;
   background: $color-eyebrow-bg;
@@ -75,7 +80,8 @@
 }
 
 .product-card__title {
-  margin-bottom: 12px;
+  order: -1;
+  margin-bottom: 16px;
   color: $color-dark;
   font-size: $font-size-title-mobile;
   line-height: $line-height-title-mobile;
@@ -83,6 +89,7 @@
   letter-spacing: -0.3px;
 
   @include from($bp-tablet) {
+    margin-bottom: 12px;
     font-size: $font-size-title-tablet;
     line-height: $line-height-title-tablet;
   }
