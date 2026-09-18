@@ -51,9 +51,20 @@ button {
 }
 
 .page {
-  max-width: $container-max-width;
   margin: 0 auto;
-  padding: $container-padding-top $container-gutter;
+  padding: $container-padding-top-mobile $container-gutter;
+
+  @include from($bp-tablet) {
+    padding-top: $container-padding-top-tablet;
+  }
+
+  @include from($bp-desktop) {
+    padding-top: $container-padding-top;
+  }
+
+  @include from($bp-wide) {
+    max-width: $container-max-width;
+  }
 }
 
 // Hides content visually but keeps it for assistive technology

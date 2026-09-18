@@ -14,10 +14,17 @@ $color-option-border: #e6e6e6;
 $color-option-ring: #d6d6d6;
 $color-rule: #ececec;
 
-// Breakpoints (mobile-first min-width steps)
+// Breakpoints (mobile-first min-width steps, see spec "Responsive rules")
 $bp-tablet: 768px;
 $bp-desktop: 992px;
 $bp-wide: 1200px;
+
+// Wraps @content in a min-width media query: @include from($bp-tablet) { ... }
+@mixin from($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
 
 // Type
 $font-family: 'Open Sans', Arial, sans-serif;
@@ -25,25 +32,40 @@ $font-family: 'Open Sans', Arial, sans-serif;
 $font-size-body: 14px;
 $line-height-body: 24px;
 
+// Suffix-less values are desktop (992 px and up); -mobile and -tablet
+// override them below the corresponding breakpoint.
 $font-size-title: 40px;
 $line-height-title: 48px;
+$font-size-title-tablet: 30px;
+$line-height-title-tablet: 38px;
+$font-size-title-mobile: 28px;
+$line-height-title-mobile: 34px;
 
 $font-size-description: 15px;
 $line-height-description: 26px;
+$font-size-description-mobile: 14px;
+$line-height-description-mobile: 24px;
 
 $font-size-legend: 15px;
 $font-size-hint: 12px;
 
 $font-size-option-weight: 16px;
 $line-height-option-weight: 22px;
+$font-size-option-weight-mobile: 15px;
+$line-height-option-weight-mobile: 20px;
 $font-size-option-price: 14px;
 $line-height-option-price: 20px;
+$font-size-option-price-mobile: 13px;
 $font-size-option-unit-price: 12px;
 $line-height-option-unit-price: 16px;
+$font-size-option-unit-price-mobile: 11px;
 
 $font-size-current-price: 30px;
 $line-height-current-price: 34px;
+$font-size-current-price-mobile: 26px;
+$line-height-current-price-mobile: 30px;
 $font-size-old-price: 16px;
+$font-size-old-price-mobile: 14px;
 
 $font-size-eyebrow: 12px;
 $line-height-eyebrow: 20px;
@@ -56,24 +78,39 @@ $font-size-meta: 12px;
 // Layout
 $container-max-width: $bp-wide;
 $container-padding-top: 40px;
+$container-padding-top-tablet: 24px;
+$container-padding-top-mobile: 16px;
 $container-gutter: 16px;
 
 $card-gap: 56px;
+$card-gap-tablet: 28px;
+$card-gap-mobile: 20px;
 $photo-panel-padding: 40px;
+$photo-panel-padding-tablet: 20px;
+$photo-panel-padding-mobile: 16px;
 $photo-panel-radius: 20px;
+$photo-panel-radius-mobile: 16px;
 $photo-radius: 12px;
 $photo-shadow: 0 20px 40px -24px rgba(32, 32, 32, 0.35);
 
 $option-gap: 10px;
+$option-gap-mobile: 8px;
 $option-padding: 14px 16px 12px;
+$option-padding-tablet: 12px 14px 10px;
+$option-padding-mobile: 10px 12px 8px;
 $option-radius: 12px;
+$option-radius-mobile: 10px;
 $option-border-width: 1.5px;
 $option-circle-size: 18px;
+$option-circle-size-mobile: 16px;
 $option-circle-inset: 14px;
+$option-circle-inset-mobile: 10px;
 
 $button-padding: 14px 30px;
+$button-padding-mobile: 14px 20px;
 
 $meta-gap: 18px;
+$meta-gap-mobile: 8px 14px;
 
 $radius-pill: 999px;
 $transition-duration: 250ms;

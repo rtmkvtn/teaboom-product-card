@@ -1,20 +1,42 @@
 @use 'variables' as *;
 
+// Base rules are mobile: one column, photo first. Tablet keeps two equal
+// top-aligned columns; desktop restores the 1.1fr/1fr centred layout.
 .product-card {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: $card-gap;
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: $card-gap-mobile;
 
   > * {
     min-width: 0;
   }
+
+  @include from($bp-tablet) {
+    grid-template-columns: 1fr 1fr;
+    gap: $card-gap-tablet;
+    align-items: start;
+  }
+
+  @include from($bp-desktop) {
+    grid-template-columns: 1.1fr 1fr;
+    gap: $card-gap;
+    align-items: center;
+  }
 }
 
 .product-card__photo {
-  padding: $photo-panel-padding;
+  padding: $photo-panel-padding-mobile;
   background: $color-photo-panel;
-  border-radius: $photo-panel-radius;
+  border-radius: $photo-panel-radius-mobile;
+
+  @include from($bp-tablet) {
+    padding: $photo-panel-padding-tablet;
+  }
+
+  @include from($bp-desktop) {
+    padding: $photo-panel-padding;
+    border-radius: $photo-panel-radius;
+  }
 }
 
 .product-card__image {
@@ -23,9 +45,21 @@
   box-shadow: $photo-shadow;
 }
 
+// A flex column on mobile so the description can be moved last with `order`;
+// from tablet up the block flows in source order again.
+.product-card__info {
+  display: flex;
+  flex-direction: column;
+
+  @include from($bp-tablet) {
+    display: block;
+  }
+}
+
 .product-card__eyebrow {
   display: inline-block;
-  margin-bottom: 14px;
+  align-self: flex-start;
+  margin-bottom: 10px;
   padding: 2px 12px;
   background: $color-eyebrow-bg;
   color: $color-eyebrow-text;
@@ -34,46 +68,88 @@
   font-weight: 700;
   letter-spacing: 0.4px;
   border-radius: $radius-pill;
+
+  @include from($bp-tablet) {
+    margin-bottom: 14px;
+  }
 }
 
 .product-card__title {
   margin-bottom: 12px;
   color: $color-dark;
-  font-size: $font-size-title;
-  line-height: $line-height-title;
+  font-size: $font-size-title-mobile;
+  line-height: $line-height-title-mobile;
   font-weight: 700;
   letter-spacing: -0.3px;
+
+  @include from($bp-tablet) {
+    font-size: $font-size-title-tablet;
+    line-height: $line-height-title-tablet;
+  }
+
+  @include from($bp-desktop) {
+    font-size: $font-size-title;
+    line-height: $line-height-title;
+  }
 }
 
 .product-card__description {
+  order: 1;
   max-width: 56ch;
-  margin-bottom: 26px;
-  font-size: $font-size-description;
-  line-height: $line-height-description;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid $color-rule;
+  font-size: $font-size-description-mobile;
+  line-height: $line-height-description-mobile;
+
+  @include from($bp-tablet) {
+    order: 0;
+    margin: 0 0 26px;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  @include from($bp-desktop) {
+    font-size: $font-size-description;
+    line-height: $line-height-description;
+  }
 }
 
 .price-pair {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  margin: 24px 0 10px;
+  margin: 18px 0 10px;
+
+  @include from($bp-tablet) {
+    margin-top: 24px;
+  }
 }
 
 .price-pair__current {
   color: $color-dark;
-  font-size: $font-size-current-price;
-  line-height: $line-height-current-price;
+  font-size: $font-size-current-price-mobile;
+  line-height: $line-height-current-price-mobile;
   font-weight: 700;
+
+  @include from($bp-desktop) {
+    font-size: $font-size-current-price;
+    line-height: $line-height-current-price;
+  }
 }
 
 .price-pair__old {
   color: $color-muted;
-  font-size: $font-size-old-price;
+  font-size: $font-size-old-price-mobile;
   font-weight: 500;
   text-decoration: line-through;
 
   &[hidden] {
     display: none;
+  }
+
+  @include from($bp-tablet) {
+    font-size: $font-size-old-price;
   }
 }
 
@@ -93,10 +169,15 @@
 
 .product-card__meta {
   display: flex;
-  gap: $meta-gap;
+  flex-wrap: wrap;
+  gap: $meta-gap-mobile;
   margin-top: 12px;
   color: $color-muted;
   font-size: $font-size-meta;
+
+  @include from($bp-tablet) {
+    gap: $meta-gap;
+  }
 }
 
 .product-card__sku {

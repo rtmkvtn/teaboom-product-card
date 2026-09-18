@@ -6,7 +6,7 @@
   justify-content: center;
   gap: 10px;
   width: 100%;
-  padding: $button-padding;
+  padding: $button-padding-mobile;
   background: $color-dark;
   color: $color-white;
   font-size: $font-size-button;
@@ -19,6 +19,10 @@
     background-color $transition-duration ease,
     border-color $transition-duration ease,
     color $transition-duration ease;
+
+  @include from($bp-tablet) {
+    padding: $button-padding;
+  }
 
   &:hover {
     background: $color-accent;
