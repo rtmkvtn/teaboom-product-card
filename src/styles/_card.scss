@@ -1,13 +1,16 @@
 @use 'variables' as *;
 
-// Base rules are mobile: one column where the info block's children join the
-// grid (display: contents) so the title and category can sit above the photo
-// and the description last. Spacing on mobile comes from margins, not the
-// grid gap. Tablet keeps two equal top-aligned columns; desktop restores the
-// 1.1fr/1fr centred layout.
+// Three blocks in phone reading order (header, photo, info) placed by named
+// grid areas. Mobile stacks them in source order with margins for spacing;
+// tablet and desktop put the photo in the left column spanning both rows and
+// the header above the info on the right.
 .product-card {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-areas:
+    'header'
+    'photo'
+    'info';
   gap: 0;
 
   > * {
@@ -16,18 +19,26 @@
 
   @include from($bp-tablet) {
     grid-template-columns: 1fr 1fr;
-    gap: $card-gap-tablet;
+    grid-template-areas:
+      'photo header'
+      'photo info';
+    column-gap: $card-gap-tablet;
     align-items: start;
   }
 
   @include from($bp-desktop) {
     grid-template-columns: 1.1fr 1fr;
-    gap: $card-gap;
+    column-gap: $card-gap;
     align-items: center;
   }
 }
 
+.product-card__header {
+  grid-area: header;
+}
+
 .product-card__photo {
+  grid-area: photo;
   margin-bottom: $card-gap-mobile;
   padding: $photo-panel-padding-mobile;
   background: $color-photo-panel;
@@ -50,10 +61,12 @@
   box-shadow: $photo-shadow;
 }
 
-// On mobile the wrapper disappears (display: contents) and its children are
-// placed by `order`; from tablet up the block flows in source order again.
+// A flex column on mobile so the description can be moved last with `order`;
+// from tablet up the block flows in source order again.
 .product-card__info {
-  display: contents;
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
 
   @include from($bp-tablet) {
     display: block;
@@ -61,7 +74,6 @@
 }
 
 .product-card__title {
-  order: -2;
   margin-bottom: 4px;
   color: $color-dark;
   font-size: $font-size-title-mobile;
@@ -81,9 +93,8 @@
   }
 }
 
-// Category line right under the title; on mobile it is ordered before the photo
+// Category line right under the title
 .product-card__category {
-  order: -1;
   margin-bottom: 16px;
   color: $color-category;
   font-size: 15px;
