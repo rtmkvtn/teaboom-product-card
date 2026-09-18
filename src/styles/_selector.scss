@@ -14,7 +14,6 @@
     font-size: $font-size-hint;
   }
 
-  // 2×2 grid at every width; only the gap widens on desktop
   &__options {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -48,7 +47,6 @@
       padding: $option-padding;
     }
 
-    // Selection circle at the top right corner
     &::before {
       content: '';
       position: absolute;
@@ -151,7 +149,6 @@
     }
   }
 
-  // The checked radio is the selected state; the label reacts to it
   &__input:checked + &__label {
     border-color: $color-dark;
     box-shadow: 0 0 0 1px $color-dark;

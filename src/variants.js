@@ -1,5 +1,4 @@
-// Packaging variants: the single source of truth for the selector,
-// the price pair and the SKU. Prices are in rubles, weight in grams.
+// Prices in rubles, weight in grams
 export const variants = [
   { weight: 100, sku: '01306', price: 326.4, oldPrice: 349.2 },
   { weight: 500, sku: '01307', price: 1432, oldPrice: 1646 },

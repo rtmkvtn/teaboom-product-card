@@ -39,7 +39,6 @@
     outline-offset: 3px;
   }
 
-  // Short feedback state after a click, toggled by the script
   &--done,
   &--done:hover {
     background: $color-green;

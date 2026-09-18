@@ -1,9 +1,5 @@
 @use 'variables' as *;
 
-// Three blocks in phone reading order (header, photo, info) placed by named
-// grid areas. Mobile stacks them in source order with margins for spacing;
-// tablet and desktop put the photo in the left column spanning both rows and
-// the header above the info on the right.
 .product-card {
   display: grid;
   grid-template-columns: 1fr;
@@ -60,8 +56,6 @@
     box-shadow: $photo-shadow;
   }
 
-  // A flex column on mobile so the description can be moved last with `order`;
-  // from tablet up the block flows in source order again.
   &__info {
     grid-area: info;
     display: flex;
@@ -92,7 +86,6 @@
     }
   }
 
-  // Category line right under the title
   &__category {
     margin-bottom: 16px;
     color: $color-category;

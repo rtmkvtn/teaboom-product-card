@@ -41,7 +41,6 @@ function showVariant(variant) {
   sku.textContent = variant.sku
 }
 
-// The variant whose radio is checked, or the first one when nothing matches
 function checkedVariant() {
   const checked = selector.querySelector('input[name="variant"]:checked')
   const weight = Number(checked?.value)
