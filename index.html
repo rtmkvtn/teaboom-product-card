@@ -12,11 +12,19 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%2380bc14' d='M27 5C14 5 6 12 5 26c8 1 15-2 19-8 2-3 3-8 3-13z'/%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.6' stroke-linecap='round' d='M7 25c4-7 9-12 15-16'/%3E%3C/svg%3E"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/open-sans-cyrillic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/open-sans-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
   </head>
   <body>
@@ -34,6 +42,7 @@
             <source
               type="image/avif"
               srcset="
+                /images/ananasovij-ulun-480.avif 480w,
                 /images/ananasovij-ulun-800.avif 800w,
                 /images/ananasovij-ulun-970.avif 970w
               "
@@ -42,6 +51,7 @@
             <source
               type="image/webp"
               srcset="
+                /images/ananasovij-ulun-480.webp 480w,
                 /images/ananasovij-ulun-800.webp 800w,
                 /images/ananasovij-ulun-970.webp 970w
               "
@@ -51,6 +61,7 @@
               class="product-card__image"
               src="/images/ananasovij-ulun-800.jpg"
               srcset="
+                /images/ananasovij-ulun-480.jpg 480w,
                 /images/ananasovij-ulun-800.jpg 800w,
                 /images/ananasovij-ulun-970.jpg 970w
               "
