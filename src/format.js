@@ -7,7 +7,6 @@ export function formatPrice(rubles) {
   return `${grouped}${fraction === '00' ? '' : `,${fraction}`} ₽`
 }
 
-// Current price per 100 г, rounded to kopecks to avoid float noise
 export function unitPrice(variant) {
   return Math.round((variant.price / variant.weight) * 100 * 100) / 100
 }

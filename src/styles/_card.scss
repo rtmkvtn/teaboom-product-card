@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 // Base rules are mobile: one column where the info block's children join the
-// grid (display: contents) so the eyebrow and title can sit above the photo
+// grid (display: contents) so the title and eyebrow can sit above the photo
 // and the description last. Spacing on mobile comes from margins, not the
 // grid gap. Tablet keeps two equal top-aligned columns; desktop restores the
 // 1.1fr/1fr centred layout.
@@ -62,9 +62,9 @@
 
 .product-card__eyebrow {
   display: inline-block;
-  order: -2;
+  order: -1;
   justify-self: start;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   padding: 2px 12px;
   background: $color-eyebrow-bg;
   color: $color-eyebrow-text;
@@ -80,8 +80,8 @@
 }
 
 .product-card__title {
-  order: -1;
-  margin-bottom: 16px;
+  order: -2;
+  margin-bottom: 10px;
   color: $color-dark;
   font-size: $font-size-title-mobile;
   line-height: $line-height-title-mobile;
@@ -102,7 +102,6 @@
 
 .product-card__description {
   order: 1;
-  max-width: 56ch;
   margin-top: 20px;
   padding-top: 18px;
   border-top: 1px solid $color-rule;
@@ -111,6 +110,7 @@
 
   @include from($bp-tablet) {
     order: 0;
+    max-width: 56ch;
     margin: 0 0 26px;
     padding-top: 0;
     border-top: 0;
