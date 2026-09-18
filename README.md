@@ -32,7 +32,7 @@ npm run format   # Prettier
 
 ## Деплой
 
-GitHub Pages, источник — GitHub Actions. Workflow `.github/workflows/deploy.yml` запускается на push в `master` (и вручную): `npm ci`, `npm run build`, публикация `dist/`. Vite собирает с `base: /teaboom-product-card/`. Одна ручная правка: при включении Pages через API окружение `github-pages` разрешало деплой только с ветки `main`, политику веток в настройках репозитория один раз переключили на `master`.
+GitHub Pages, источник — GitHub Actions. Workflow `.github/workflows/deploy.yml` запускается на push в `master` (и вручную): `npm ci`, `npm run build`, публикация `dist/`. Vite собирает с `base: /teaboom-product-card/`.
 
 ## Структура проекта
 
@@ -57,8 +57,3 @@ src/styles/_button.scss       # кнопка «В корзину» и её со�
 
 Затрачено: ≈ 1.5 ч
 
-## Скриншоты
-
-![Карточка товара на 1440 px](docs/screenshot-desktop.png)
-
-![768 px](docs/screenshot-tablet.png) ![375 px](docs/screenshot-mobile.png)
