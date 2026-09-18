@@ -24,10 +24,14 @@
     padding: $button-padding;
   }
 
-  &:hover {
-    background: $color-accent;
-    border-color: $color-accent;
-    color: $color-dark;
+  // Only pointers that can hover; a tap on touch devices must not
+  // leave the yellow state behind once the done state ends
+  @media (hover: hover) {
+    &:hover {
+      background: $color-accent;
+      border-color: $color-accent;
+      color: $color-dark;
+    }
   }
 
   &:focus-visible {

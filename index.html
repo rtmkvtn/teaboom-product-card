@@ -30,7 +30,7 @@
               /images/ananasovij-ulun-800.jpg 800w,
               /images/ananasovij-ulun-970.jpg 970w
             "
-            sizes="(min-width: 992px) 520px, 100vw"
+            sizes="(min-width: 992px) 520px, (min-width: 768px) calc((100vw - 60px) / 2 - 40px), 100vw"
             width="800"
             height="800"
             alt="Ананасовый улун, вид сверху"
@@ -128,7 +128,7 @@
             <span class="price-pair__current">326,40&nbsp;₽</span>
             <s class="price-pair__old">
               <span class="visually-hidden">Старая цена</span>
-              349,20&nbsp;₽
+              <span class="price-pair__old-amount">349,20&nbsp;₽</span>
             </s>
             <span class="price-pair__discount">−7%</span>
           </div>
@@ -146,6 +146,11 @@
             </svg>
             <span class="cart-button__label">В корзину</span>
           </button>
+          <span
+            class="cart-button__status visually-hidden"
+            role="status"
+            aria-live="polite"
+          ></span>
 
           <ul class="product-card__meta">
             <li>Артикул <b class="product-card__sku">01306</b></li>

@@ -77,9 +77,9 @@ $font-size-meta: 12px;
 
 // Layout
 $container-max-width: $bp-wide;
-$container-padding-top: 40px;
-$container-padding-top-tablet: 24px;
-$container-padding-top-mobile: 16px;
+$container-padding-vertical: 40px;
+$container-padding-vertical-tablet: 24px;
+$container-padding-vertical-mobile: 16px;
 $container-gutter: 16px;
 
 $card-gap: 56px;
@@ -104,6 +104,7 @@ $option-border-width: 1.5px;
 $option-circle-size: 18px;
 $option-circle-size-mobile: 16px;
 $option-circle-inset: 14px;
+$option-circle-inset-tablet: 12px;
 $option-circle-inset-mobile: 10px;
 
 $button-padding: 14px 30px;

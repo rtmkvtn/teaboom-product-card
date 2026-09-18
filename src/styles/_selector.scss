@@ -61,10 +61,15 @@
       background-color $transition-duration;
 
     @include from($bp-tablet) {
-      top: $option-circle-inset;
-      right: $option-circle-inset;
+      top: $option-circle-inset-tablet;
+      right: $option-circle-inset-tablet;
       width: $option-circle-size;
       height: $option-circle-size;
+    }
+
+    @include from($bp-desktop) {
+      top: $option-circle-inset;
+      right: $option-circle-inset;
     }
   }
 
@@ -86,10 +91,17 @@
     opacity: 0;
 
     @include from($bp-tablet) {
-      top: calc(#{$option-circle-inset} + #{$option-circle-size} * 0.22);
-      right: calc(#{$option-circle-inset} + #{$option-circle-size} * 0.36);
+      top: calc(#{$option-circle-inset-tablet} + #{$option-circle-size} * 0.22);
+      right: calc(
+        #{$option-circle-inset-tablet} + #{$option-circle-size} * 0.36
+      );
       width: calc(#{$option-circle-size} * 0.28);
       height: calc(#{$option-circle-size} * 0.5);
+    }
+
+    @include from($bp-desktop) {
+      top: calc(#{$option-circle-inset} + #{$option-circle-size} * 0.22);
+      right: calc(#{$option-circle-inset} + #{$option-circle-size} * 0.36);
     }
   }
 }
@@ -118,7 +130,7 @@
   line-height: $line-height-option-price;
   font-weight: 600;
 
-  @include from($bp-tablet) {
+  @include from($bp-desktop) {
     font-size: $font-size-option-price;
   }
 }
@@ -129,7 +141,7 @@
   font-size: $font-size-option-unit-price-mobile;
   line-height: $line-height-option-unit-price;
 
-  @include from($bp-tablet) {
+  @include from($bp-desktop) {
     font-size: $font-size-option-unit-price;
   }
 }

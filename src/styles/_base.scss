@@ -52,14 +52,16 @@ button {
 
 .page {
   margin: 0 auto;
-  padding: $container-padding-top-mobile $container-gutter;
+  padding: $container-padding-vertical-mobile $container-gutter;
 
   @include from($bp-tablet) {
-    padding-top: $container-padding-top-tablet;
+    padding-top: $container-padding-vertical-tablet;
+    padding-bottom: $container-padding-vertical-tablet;
   }
 
   @include from($bp-desktop) {
-    padding-top: $container-padding-top;
+    padding-top: $container-padding-vertical;
+    padding-bottom: $container-padding-vertical;
   }
 
   @include from($bp-wide) {

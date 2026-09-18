@@ -148,7 +148,7 @@
     display: none;
   }
 
-  @include from($bp-tablet) {
+  @include from($bp-desktop) {
     font-size: $font-size-old-price;
   }
 }
